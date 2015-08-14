@@ -1,0 +1,10 @@
+{
+  "ftp": true,
+  "ftp_connection": {
+    "server":"yourserver.com",
+    "username":"username",
+    "password":"password"
+  },
+  "otherDeployTarget": true,
+  "otherDeployPath":"../vagrant/www/typo3/fileadmin/template"
+}
