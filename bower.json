@@ -1,0 +1,27 @@
+{
+  "name": "typo3-gulp",
+  "version": "0.0.1",
+  "homepage": "https://github.com/CanKattw/typo3-gulp",
+  "authors": [
+    "Can Kattwinkel"
+  ],
+  "description": "typo3 setup with gulp and less",
+  "main": "index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "gulp",
+    "typo3",
+    "browsersync",
+    "less"
+  ],
+  "license": "Apache License",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

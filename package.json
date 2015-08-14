@@ -1,0 +1,26 @@
+{
+  "name": "typo3-gulp",
+  "version": "0.0.1",
+  "description": "typo3 setup with gulp and less",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CanKattw/typo3-gulp.git"
+  },
+  "keywords": [
+    "typo3",
+    "less",
+    "gulp",
+    "browsersnyc",
+    "sourcemaps"
+  ],
+  "author": "Can Kattwinkel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CanKattw/typo3-gulp/issues"
+  },
+  "homepage": "https://github.com/CanKattw/typo3-gulp#readme"
+}
