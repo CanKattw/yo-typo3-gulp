@@ -4,7 +4,7 @@
     "host":"ftpserverhost",
     "username":"ftpserverusername",
     "password":"ftpserverpassword",
-    "path_to_typo3":"folder/path/on/server/to/typo3Base",
+    "path_to_typo3":"folder/path/on/server/to/fileadmin/template/",
     "http_path": "http://yourWebUrl/"
   },
   "otherDeployTarget": false,
