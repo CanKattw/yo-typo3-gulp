@@ -1,0 +1,1 @@
+some content that should be available in assets

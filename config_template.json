@@ -1,0 +1,13 @@
+{
+  "ftp": true,
+  "ftp_connection": {
+    "host":"ftpserverhost",
+    "username":"ftpserverusername",
+    "password":"ftpserverpassword",
+    "path_to_typo3":"folder/path/on/server/to/typo3Base",
+    "http_path": "http://yourWebUrl/"
+  },
+  "otherDeployTarget": false,
+  "otherDeployPath":"../vagrant/www/typo3/fileadmin/template",
+  "info": "this feature is not implemented yet - please use ftp connection to vagrant"
+}
