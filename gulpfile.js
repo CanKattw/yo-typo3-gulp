@@ -12,7 +12,6 @@ var ftp = require( 'vinyl-ftp' );
 var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var mainBowerFiles = require('main-bower-files');
-var _ = require('lodash');
 var rename = require('gulp-rename');
 
 var config = require('./config.json');
@@ -84,18 +83,8 @@ gulp.task('move', function() {
 
 gulp.task('browser-sync', function() {
     browserSync.init([], {
-        //proxy: "typo3-gulp.dev-werbemacher.com",
+        proxy: "typo3-gulp.dev-werbemacher.com",
         open: false,
-        proxy: {
-            target: "typo3-gulp.dev-werbemacher.com",
-            reqHeaders: function (config) {
-                return {
-                    "host":            config.urlObj.host,
-                    "accept-encoding": "identity",
-                    "agent":           false
-                }
-            }
-        }
     });
 });
 
