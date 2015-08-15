@@ -83,7 +83,7 @@ gulp.task('move', function() {
 
 gulp.task('browser-sync', function() {
     browserSync.init([], {
-        proxy: "typo3-gulp.dev-werbemacher.com",
+        proxy: config.ftp_connection.http_path,
         open: false,
     });
 });
