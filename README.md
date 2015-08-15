@@ -45,7 +45,7 @@ now we have to tell typo3 where our TypoScript files will be located (fileadmin/
 1. Create new typoscript template or replace an existing one with following line
 
 
-    <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/template/includes/" extensions="ts">
+    <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/template/ts/" extensions="ts">
 ### 5. fire it up
     $ gulp
 
