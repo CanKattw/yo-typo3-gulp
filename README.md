@@ -1,10 +1,9 @@
-# yo-typo3-gulp
+# generator-typo3-gulp
 *yo generator for gulp based typo3 theme development*
 
 Allows you to develop themes locally with git/less/gulp. No need for a server with nodejs or root.
-simply deploy all your files either to a locally available typo3 instance(**vagrant**/**lamp**/.. or to your **remote server via FTP**.
-
-*this tool is is under heavy development, expect breaking changes*
+simply deploy all your files either to a locally available typo3 instance(**vagrant**/**lamp**/.. or to your **remote server via FTP**. 
+Right now it supports only ftp upload
 
 ## Features
 * LiveReload
@@ -20,25 +19,23 @@ simply deploy all your files either to a locally available typo3 instance(**vagr
 
 
 ## setup
-Follow those easy steps to setup your typo3 build
+to run this setup you need nodejs locally available (not on typo3 server!)
 
-#### 1. clone this project
+#### 1. install yeoman
 Clone this Repository as a boilerplate for new projects with
 
-    $ git clone https://github.com/CanKattw/typo3-gulp.git
+    $ sudo npm install -g yo
 
-#### 2. install  dependencies
+#### 2. install typo3-gulp generator
 this setup reqires nodejs and npm.
 
-    $ sudo npm install
+    $ sudo npm i -g generator-typo3-gulp
 
-and
 
-    $ bower install
+### 3. run yo-generator
 
-### 3. config.json
-use the ***config_template.json*** file and enter your ftp connection.
-save file as ***config.json*** in project root folder.
+    $ yo typo3-gulp
+enter your project data now.
 
 ### 4. configure typo3
 now we have to tell typo3 where our TypoScript files will be located (fileadmin/template/ts)
@@ -46,6 +43,7 @@ now we have to tell typo3 where our TypoScript files will be located (fileadmin/
 
 
     <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/template/ts/" extensions="ts">
+
 ### 5. fire it up
     $ gulp
 
@@ -82,9 +80,4 @@ You cant login in through browsersync proxy? go to InstallTool > All Config -> d
 
 
 ## Features that will follow:
-criticalCSS
-yeoman generator
-enable usage of typo3-gulp as npm module
-jslint
-...
-many more!
+criticalCSS, jslint, and many more!
