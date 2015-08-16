@@ -1,0 +1,19 @@
+{
+  "name": "<%= project_name %>",
+  "version": "<%= project_version %>",
+  "description": "<%= project_description%>",
+  "main": "index.html",
+  "keywords": [],
+  "license": "Apache License",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0"
+  }
+}

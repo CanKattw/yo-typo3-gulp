@@ -1,8 +1,5 @@
-# Note:
-right now a yeoman generator is in progress - please use branch #with-templates if you cant wait.
-
-# typo3-gulp
-*gulp based typo3 theme development tool*
+# yo-typo3-gulp
+*yo generator for gulp based typo3 theme development*
 
 Allows you to develop themes locally with git/less/gulp. No need for a server with nodejs or root.
 simply deploy all your files either to a locally available typo3 instance(**vagrant**/**lamp**/.. or to your **remote server via FTP**.
