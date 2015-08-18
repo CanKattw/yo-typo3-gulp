@@ -13,6 +13,7 @@ var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var mainBowerFiles = require('main-bower-files');
 var rename = require('gulp-rename');
+var autoprefixer = require('gulp-autoprefixer');
 
 var config = require('./config.json');
 var lessVariables = require('./variables.json');
@@ -45,6 +46,7 @@ function compileLess() {
   s = s.pipe(less({
     modifyVars: lessVariables
   }));
+  s = s.pipe(autoprefixer());
   s = s.pipe(remember('less'));
   s = s.pipe(minifyCss());
   s = s.pipe(concat('style.css'));
