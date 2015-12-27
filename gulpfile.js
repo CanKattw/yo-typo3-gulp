@@ -120,7 +120,7 @@ gulp.task('moveAssets', function() {
 gulp.task('moveTypoScript', function() {
 
   //typoscript
-  return gulp.src(['ts/**', '!ts/snippets/**'], {cwd: './src'})
+  return gulp.src(['ts/**', '!ts/snippets/**'], {cwd: './src', dot: true})
       .pipe(gulp.dest(paths.target+'/ts/'));
 
 });
@@ -171,7 +171,7 @@ gulp.task('ftp', function() {
   var globs = [
     'build-output/**',
   ];
-  return  gulp.src( globs, { base: './build-output', buffer: false } )
+  return gulp.src(globs, {base: './build-output', buffer: false, dot: true})
       .pipe( conn.differentSize(config.paths.typo3 + paths.tmplPath) ) // only upload newer files
       .on('error', onError)
       .pipe( conn.dest(config.paths.typo3 + paths.tmplPath) )
