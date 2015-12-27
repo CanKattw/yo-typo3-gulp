@@ -174,6 +174,8 @@ gulp.task('watch', function () {
   gulp.watch(['assets/**/*'], ['moveAssets']);
   gulp.watch(['src/ts/**'], ['moveTypoScript']);
 
+  gulp.watch(['iconfont/icons/**'], ['iconfont']);
+
 });
 
 
@@ -215,7 +217,7 @@ gulp.task('ftp-deploy-watch', function() {
 
 
 gulp.task('default', function () {
-  runSequence(['clean', 'less', 'js',  'moveHtml', 'moveAssets', 'moveTypoScript', 'browser-sync'],
+  runSequence(['clean', 'less', 'js',  'moveHtml', 'moveAssets', 'moveTypoScript', 'browser-sync', 'iconfont'],
       'firstIteration',
       'ftp',
       ['ftp-deploy-watch','watch']
