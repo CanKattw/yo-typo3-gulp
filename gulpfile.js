@@ -123,7 +123,18 @@ gulp.task('moveTypoScript', function() {
 
 gulp.task('browser-sync', function() {
   browserSync.init( {
-    proxy: config.paths.http,
+    proxy: {
+      target: config.paths.http,
+      cookies: {
+        devMode: true
+      }
+    },
+    middleware: [
+      function (req, res, next) {
+        req.headers['user-agent'] = 'cachebust';
+        next();
+      }
+    ],
     open: false,
     reloadOnRestart: true,
     port: 3000
@@ -164,6 +175,13 @@ gulp.task('ftp', function() {
       .on('end', function () {
         browserSync.reload();
       });
+});
+
+
+
+gulp.task('cleanRemote', function(cb) {
+  // deletes template directory on server
+  return  conn.rmdir( config.paths.typo3 + paths.tmplPath, cb )
 });
 
 
@@ -238,6 +256,7 @@ gulp.task('default', function () {
 
 gulp.task('deploy', function () {
   runSequence(
+      'cleanRemote',
       'disabledDev',
       mainChain,
       'ftp'

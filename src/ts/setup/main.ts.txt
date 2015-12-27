@@ -1,7 +1,6 @@
 # all files in this folder will be included to your TS Setup if you have copied the include line to your template setup!
 # <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/template/ts/setup" extensions="txt">
 # see README.md for further instructions
-
 page = PAGE
 page.config {
   doctype = html5
@@ -38,7 +37,3 @@ page.footerData.999.value (
 page.includeCSS {
   file1 = /fileadmin/template/style.css
 }
-
-// only while dev start
-config.no_cache = 1
-// only while dev end

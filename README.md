@@ -78,6 +78,13 @@ to generate the iconfont from the svg's in ./iconfont/ just run:
 make sure the css is included to your setup.
 
 
+### Delete files on Server
+
+**be aware**: by default gulp will only upload files to the server. If you delete a file locally it is still on the server. Run the cleanRemote task from time to time to get rid of old files.
+
+    gulp cleanRemote
+
+
 ### install bower dependencies
 bower dependencies will be automatically included into your template. just install them via
 
