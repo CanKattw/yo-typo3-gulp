@@ -1,0 +1,3 @@
+# all files in this folder will be included to your constants if you have copied the include line to your constants setup!
+# <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/template/ts/constants" extensions="txt">
+# see README.md for further instructions

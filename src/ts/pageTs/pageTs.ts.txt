@@ -1,0 +1,3 @@
+# all files in this folder will be included to your pageTS if you have copied the include line to your pagets setup!
+# <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/template/ts/pageTs" extensions="txt">
+# see README.md for further instructions

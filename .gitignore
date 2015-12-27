@@ -1,0 +1,5 @@
+.idea
+bower_components
+build-output
+node_modules
+config.json
