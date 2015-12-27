@@ -131,19 +131,19 @@ gulp.task('browser-sync', function() {
 
 
 gulp.task('iconfont', function () {
-  gulp.src(['assets/iconfont/svg/*.svg'])
+  gulp.src(['iconfont/icons/*.svg'])
       .pipe(debug())
       .pipe(iconfontCss({
         fontName: fontName,
-        path: 'assets/iconfont/template.less',
-        targetPath: '../../../src/less/font.less',
-        fontPath: 'assets/iconfont/font/'
+        path: 'iconfont/template.less',
+        targetPath: '../../../src/less/iconfont.less',
+        fontPath: 'assets/fonts/iconfont/'
       }))
       .pipe(iconfont({
         fontName: fontName,
         normalize: true
       }))
-      .pipe(gulp.dest('assets/iconfont/font/'));
+      .pipe(gulp.dest('assets/fonts/iconfont/'));
 });
 
 
