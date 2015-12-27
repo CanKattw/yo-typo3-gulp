@@ -16,6 +16,7 @@ var mainBowerFiles = require('main-bower-files');
 var rename = require('gulp-rename');
 var runSequence = require('run-sequence').use(gulp);
 var gulpif = require('gulp-if');
+var autoprefixer = require('gulp-autoprefixer');
 
 // Iconfont
 var iconfont = require('gulp-iconfont');
@@ -67,7 +68,10 @@ function compileLess() {
     modifyVars: lessVariables
   }));
   s = s.on('error', onError);
-
+  s = s.pipe(autoprefixer({
+    browsers: ['> 5%'],
+    cascade: false
+  }));
   s = s.pipe(minifyCss());
   s = s.pipe(remember('less'));
   s = s.pipe(concat('style.css'));
