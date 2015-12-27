@@ -1,0 +1,7 @@
+config {
+    prefixLocalAnchors = all
+    simulateStaticDocuments = 0
+    baseURL = ###YOURURL###
+    absRelPath = /
+    tx_realurl_enable = 1
+}
