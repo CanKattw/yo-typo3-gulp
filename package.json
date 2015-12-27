@@ -26,10 +26,10 @@
     "gulp-util": "^3.0.6",
     "main-bower-files": "^2.9.0",
     "run-sequence": "^1.1.5",
-    "vinyl-ftp": "^0.4.4"
-  },
-  "dependencies": {
+    "vinyl-ftp": "^0.4.4",
     "gulp-debug": "^2.1.2",
     "gulp-if": "^2.0.0"
+  },
+  "dependencies": {
   }
 }
