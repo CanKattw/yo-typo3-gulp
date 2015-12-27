@@ -15,6 +15,7 @@ var debug = require('gulp-debug');
 var mainBowerFiles = require('main-bower-files');
 var rename = require('gulp-rename');
 var runSequence = require('run-sequence').use(gulp);
+var gulpif = require('gulp-if');
 
 // Iconfont
 var iconfont = require('gulp-iconfont');
@@ -25,6 +26,7 @@ var fontName = 'icons';
 
 
 var firstIteration = true;
+var devMode = true;
 var config = require('./config.json');
 var lessVariables = require('./variables.json');
 
@@ -59,7 +61,7 @@ var allJs = paths.bowerJs.concat(paths.jsFiles);
 
 function compileLess() {
   var s = gulp.src(allLess);
-  s = s.pipe(sourceMaps.init());
+  s = s.pipe(gulpif(devMode, sourceMaps.init()));
   s = s.pipe(cache('less'));
   s = s.pipe(less({
     modifyVars: lessVariables
@@ -69,27 +71,26 @@ function compileLess() {
   s = s.pipe(minifyCss());
   s = s.pipe(remember('less'));
   s = s.pipe(concat('style.css'));
-  s = s.pipe(sourceMaps.write());
+  s = s.pipe(gulpif(devMode,sourceMaps.write()));
   //s = s.pipe(browserSync.stream());
   return s.pipe(gulp.dest(paths.target));
 }
 
 function compileJs() {
   var s = gulp.src(allJs);
-  s = s.pipe(sourceMaps.init());
+  s = s.pipe(gulpif(devMode, sourceMaps.init()));
   s = s.pipe(cache('js'));
   s = s.pipe(uglify());
   s = s.on('error', onError);
   //s = s.pipe(#######); for by linting
   s = s.pipe(remember('js'));
   s = s.pipe(concat('app.js'));
-  s = s.pipe(sourceMaps.write('maps/'));
+  s = s.pipe(gulpif(devMode,sourceMaps.write()));
   return s.pipe(gulp.dest(paths.target));
 }
 
 
 gulp.task('moveHtml', function() {
-
   // html templates
   return gulp.src('**/*.html', {cwd: 'src'})
       .pipe(gulp.dest(paths.target));
@@ -206,6 +207,11 @@ gulp.task('firstIteration', function () {
   firstIteration = false;
 });
 
+
+gulp.task('disabledDev', function () {
+  devMode = false;
+});
+
 gulp.task('ftp-deploy-watch', function() {
   gulp.watch('./build-output/**/*')
       .on('change', function (event) {
@@ -216,11 +222,25 @@ gulp.task('ftp-deploy-watch', function() {
 });
 
 
+var mainChain = ['clean', 'less', 'js',  'moveHtml', 'moveAssets', 'moveTypoScript', 'iconfont'];
+
+
 gulp.task('default', function () {
-  runSequence(['clean', 'less', 'js',  'moveHtml', 'moveAssets', 'moveTypoScript', 'browser-sync', 'iconfont'],
+  runSequence(
+      'browser-sync',
+      mainChain,
       'firstIteration',
       'ftp',
       ['ftp-deploy-watch','watch']
+  );
+});
+
+
+gulp.task('deploy', function () {
+  runSequence(
+      'disabledDev',
+      mainChain,
+      'ftp'
   );
 });
 

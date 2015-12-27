@@ -28,6 +28,7 @@
     "vinyl-ftp": "^0.4.4"
   },
   "dependencies": {
-    "gulp-debug": "^2.1.2"
+    "gulp-debug": "^2.1.2",
+    "gulp-if": "^2.0.0"
   }
 }
