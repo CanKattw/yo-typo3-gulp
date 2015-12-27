@@ -12,7 +12,7 @@ page.config {
 
 }
 page.meta.viewport  = width=device-width, initial-scale=1
-page.shortcutIcon = fileadmin/template/img/favicon.ico
+page.shortcutIcon = fileadmin/template/assets/favicon.ico
 
 page.10 = TEMPLATE
 page.10.template = FILE
