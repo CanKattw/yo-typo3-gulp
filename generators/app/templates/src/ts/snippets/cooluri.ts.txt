@@ -1,0 +1,6 @@
+page.config {
+    simulateStaticDocuments = 0
+    baseURL = ###YOURURL###
+    tx_cooluri_enable = 1
+    redirectOldLinksToNew = 1
+}

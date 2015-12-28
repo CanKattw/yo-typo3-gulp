@@ -55,8 +55,8 @@ module.exports = yeoman.generators.Base.extend({
       {
         type    : 'input',
         name    : 'path_to_typo3',
-        message : 'full path to the template folder (must be like this: "typo3instance/fileadmin/template/" )',
-        default : 'fileadmin/template/'
+        message : 'full path to your typo3 root (from FTP Login)',
+        default : '/myTypo3instance/'
       },
       {
         type    : 'input',
@@ -99,9 +99,14 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('src/')
       );
       this.fs.copy(
-        this.templatePath('assets/_demo.txt'),
-        this.destinationPath('assets/demo.txt')
+        this.templatePath('assets/**'),
+        this.destinationPath('assets/')
       );
+      this.fs.copy(
+        this.templatePath('iconfont/**'),
+        this.destinationPath('iconfont/')
+      );
+
 
       this.template('_config.json', 'config.json', settings);
       this.template('_bower.json', 'bower.json', settings);

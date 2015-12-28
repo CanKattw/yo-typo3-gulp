@@ -1,3 +1,6 @@
+# all files in this folder will be included to your TS Setup if you have copied the include line to your template setup!
+# <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/template/ts/setup" extensions="txt">
+# see README.md for further instructions
 page = PAGE
 page.config {
   doctype = html5
@@ -9,7 +12,7 @@ page.config {
 
 }
 page.meta.viewport  = width=device-width, initial-scale=1
-page.shortcutIcon = fileadmin/template/img/favicon.ico
+page.shortcutIcon = fileadmin/template/assets/favicon.ico
 
 page.10 = TEMPLATE
 page.10.template = FILE
@@ -34,7 +37,3 @@ page.footerData.999.value (
 page.includeCSS {
   file1 = /fileadmin/template/style.css
 }
-
-// only while dev start
-config.no_cache = 1
-// only while dev end

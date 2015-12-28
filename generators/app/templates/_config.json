@@ -3,11 +3,10 @@
   "ftp_connection": {
     "host":"<%= host %>",
     "username":"<%= username %>",
-    "password":"<%= password %>",
-    "path_to_typo3":"<%= path_to_typo3 %>",
-    "http_path": "<%= http_path %>"
+    "password":"<%= password %>"
   },
-  "otherDeployTarget": false,
-  "otherDeployPath":"../vagrant/www/typo3/fileadmin/template",
-  "info": "this feature is not implemented yet - please use ftp connection to vagrant"
+  "paths": {
+    "typo3": "<%= path_to_typo3 %>",
+    "http":"<%= http_path %>"
+  }
 }

@@ -1,21 +1,28 @@
 # generator-typo3-gulp
 *yo generator for gulp based typo3 theme development*
 
-Allows you to develop themes locally with git/less/gulp. No need for a server with nodejs or root.
-simply deploy all your files either to a locally available typo3 instance(**vagrant**/**lamp**/.. or to your **remote server via FTP**. 
-Right now it supports only ftp upload
+This setup will boost your workflow to ultimate. Its perfect for simple sites that can be build in a week. The focus is not on heavy php extension developing but creating themes. if you need custom content elements, go with DCE to get fastest and best results.
+
+Allows you to develop themes locally with git/less/gulp. No need for a server with nodejs or root. Develop local while this setup pushes your changes to the server in the background. They will be ready before you've switched to the browser window.
+
+
 
 ## Features
-* LiveReload
+* LiveReload 
+* Inject CSS changes without reload
 * Less
-* CSS sourcemaps
+* Sourcemaps
 * bower
 * gulp
 * minify/ulify
 * develop typoscript with git
-* **really fast** build through caching (10ms to compile less!)
+* **really fast** build through caching
 * auto deploy to server via ftp
 * auto include bower files
+* iconfont
+* autoprefix your css
+* support for dce
+* ....
 
 
 ## setup
@@ -38,29 +45,56 @@ this setup reqires nodejs and npm.
 enter your project data now.
 
 ### 4. configure typo3
-now we have to tell typo3 where our TypoScript files will be located (fileadmin/template/ts)
+now we have to tell typo3 where our TypoScript files will be located (fileadmin/template/ts). My TypoScript files end with "*.ts.txt" so they dont interfere with TypeScript Files.
 1. Create new typoscript template or replace an existing one with following line
 
+    Setup:
+    <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/template/ts/setup" extensions="txt">
 
-    <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/template/ts/" extensions="ts">
+    Constants:
+    <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/template/ts/constants" extensions="txt">
+
+    PageTs:
+    <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/template/ts/pageTs" extensions="txt">
+
 
 ### 5. fire it up
     $ gulp
+    
+    
+### 6. deploy
+in order to finally deploy your website use the deploy task. (no sourcemaps)
+
+    $ gulp
+    
+    
 
 to access your typo3, go to: <http://localhost:3000>
 
 ## What you should Know..
 
 ### TypoScript
-Is stored in **src/typoscript/includes**
-every file will be automatically be included.
-do not write typoscript in typo3
+Is stored in **src/ts/**. You have to include 1 line in your page typoscript setup to include everything. See #4.
 
 ### less
-this setup is based on less. if you open your browser.
-to overwrite less variables of your bower modules use **./variables.json**, example for font-awesome-font path is included.
+this setup is based on less. To overwrite less variables of your bower modules use **./variables.json**, example for font-awesome-font path is included.
+
 ### javascript
 no linting jet but sourcemaps are working.
+
+### iconfont
+to generate the iconfont from the svg's in ./iconfont/ just run:
+
+    gulp iconfont
+
+make sure the css is included to your setup.
+
+
+### Delete files on Server
+
+**be aware**: by default gulp will only upload files to the server. If you delete a file locally it is still on the server. Run the cleanRemote task from time to time to get rid of old files.
+
+    gulp cleanRemote
 
 
 ### install bower dependencies
@@ -75,7 +109,7 @@ changes arent displayed on the site? Check if Typo3 is Caching anything and disa
 no changes ? make sure you are logged in to avoid caching of typoscript and html files
 
 
-You cant login in through browsersync proxy? go to InstallTool > All Config -> doNotCheckReferer to "true"
+You cant login in through browsersync proxy? just dont. use localhost url for frontend only. You dont want pagereload in your backend.
 
 
 

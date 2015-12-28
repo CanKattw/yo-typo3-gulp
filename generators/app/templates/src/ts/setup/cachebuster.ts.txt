@@ -1,0 +1,5 @@
+// do not delete this file. It ensures that your cache is deactivated while developing. Only runs if site is accessed trough localhost -> this line can remain in production with no worries!
+
+[globalString = ENV:HTTP_USER_AGENT = cachebust]
+    config.no_cache = 1
+[global]
