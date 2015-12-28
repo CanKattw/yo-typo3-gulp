@@ -1,6 +1,6 @@
 {
   "name": "generator-typo3-gulp",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "yo generator for gulp based typo3 theme development",
   "license": "MIT",
   "main": "app/index.js",
