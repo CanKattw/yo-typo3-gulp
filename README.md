@@ -65,7 +65,7 @@ now we have to tell typo3 where our TypoScript files will be located (fileadmin/
 ### 6. deploy
 in order to finally deploy your website use the deploy task. (no sourcemaps)
 
-    $ gulp
+    $ gulp deploy
 
 
 
