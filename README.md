@@ -8,21 +8,21 @@ Allows you to develop themes locally with git/less/gulp. No need for a server wi
 
 
 ## Features
-* LiveReload 
+* LiveReload
+* fluid templates (no more marker)
 * Inject CSS changes without reload
 * Less
-* Sourcemaps
-* bower
+* Sourcemaps (served from localhost for speedboost)
+* bower with mainbowerfiles (auto include required files)
 * gulp
 * minify/ulify
-* develop typoscript with git
 * **really fast** build through caching
 * auto deploy to server via ftp
 * auto include bower files
 * iconfont
 * autoprefix your css
 * support for dce
-* ....
+* jslint
 
 
 ## setup
@@ -60,14 +60,14 @@ now we have to tell typo3 where our TypoScript files will be located (fileadmin/
 
 ### 5. fire it up
     $ gulp
-    
-    
+
+
 ### 6. deploy
 in order to finally deploy your website use the deploy task. (no sourcemaps)
 
     $ gulp deploy
-    
-    
+
+
 
 to access your typo3, go to: <http://localhost:3000>
 
@@ -105,13 +105,9 @@ bower dependencies will be automatically included into your template. just insta
 and restart gulp.
 
 ## Problems
-changes arent displayed on the site? Check if Typo3 is Caching anything and disabled it. if the problem persists create an ticket please, this project is at its verry beginning.
 no changes ? make sure you are logged in to avoid caching of typoscript and html files
 
 
-You cant login in through browsersync proxy? just dont. use localhost url for frontend only. You dont want pagereload in your backend.
+You cant login into Typo3 Backend through localhost:3000? just don't. Use the localhost url for frontend only. You don't want page-reload affect your backend.
 
 
-
-## Features that will follow:
-criticalCSS, jslint, and many more!

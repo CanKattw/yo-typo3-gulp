@@ -14,11 +14,14 @@ page.config {
 page.meta.viewport  = width=device-width, initial-scale=1
 page.shortcutIcon = fileadmin/template/assets/favicon.ico
 
-page.10 = TEMPLATE
+page.10 = FLUIDTEMPLATE
 page.10.template = FILE
 page.10.template.file = fileadmin/template/index.html
-page.10.workOnSubpart = DOCUMENT_BODY
 
+page.10.variables {
+  content < styles.content.get
+  content.select.where = colPos = 0
+}
 page.headerData.10 = TEXT
 page.headerData.10.value (
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -32,8 +35,10 @@ TCAdefaults.tt_content.image_zoom = 1
 
 page.footerData.999 = TEXT
 page.footerData.999.value (
-    <script src="/fileadmin/template/app.js" defer></script>
+    <script src="/fileadmin/template/vendor.js" defer></script>
+    <script src="/fileadmin/template/custom.js" defer></script>
 )
 page.includeCSS {
-  file1 = /fileadmin/template/style.css
+  file1 = /fileadmin/template/vendor.css
+  file2 = /fileadmin/template/custom.css
 }
